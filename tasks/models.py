@@ -2,15 +2,18 @@ from django.db import models
 
 # Create your models here.
 class Progress(models.Model):
-    id = models.IntegerField(("ID"), primary_key=True)
+    id = models.AutoField(("ID"), primary_key=True, auto_created=True)
+    #id = models.IntegerField(("ID"), primary_key=True)
     description = models.CharField(("Description"), max_length=50)
 
 class Priority(models.Model):
-    id = models.IntegerField(("ID"), primary_key=True)
+    id = models.AutoField(("ID"), primary_key=True, auto_created=True)
+    #id = models.IntegerField(("ID"), primary_key=True)
     description = models.CharField(("Description"), max_length=50)
 
 class Team(models.Model):#Tirar esse model daqui
-    id = models.IntegerField(("ID"), primary_key=True)
+    id = models.AutoField(("ID"), primary_key=True, auto_created=True)
+    #id = models.IntegerField(("ID"), primary_key=True)
     name = models.CharField(("Name"), max_length=50)
     #members = models.ManyToManyField("authentication.User", verbose_name=("Members"))
 
@@ -20,7 +23,7 @@ class Team(models.Model):#Tirar esse model daqui
 
 
 class Task(models.Model):
-    id = models.IntegerField(("ID"), primary_key=True)
+    id = models.AutoField(("ID"), primary_key=True, auto_created=True)
     name = models.CharField(("Name"), max_length=100)
     description = models.TextField(("Description"))
     parent_id = models.ForeignKey("tasks.Task", verbose_name=("Parent ID"), on_delete=models.CASCADE, null=True)
@@ -37,6 +40,6 @@ class Task(models.Model):
 
 
     def __str__(self):
-        return self.name, 
+        return str(self.name) 
      
     

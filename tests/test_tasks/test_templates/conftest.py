@@ -1,6 +1,10 @@
+from re import A
+
 from pytest import fixture
 from selenium import webdriver
 from time import sleep
+
+#from tkinter.tix import DirList
 
 
 @fixture
@@ -20,4 +24,13 @@ def open_tasks_page(initial_settings):
     driver = initial_settings
     URL_TASK_PAGE = 'http://127.0.0.1:8000/tasks/'
     driver.get(URL_TASK_PAGE)
-    sleep(5)
+    return driver
+    #sleep(5)
+
+@fixture
+def open_blog_page(initial_settings):
+    driver = initial_settings
+    URL_BLOG_PAGE = 'http://localhost:3000/blog'
+    driver.get(URL_BLOG_PAGE)
+    return driver
+    #sleep(5)
